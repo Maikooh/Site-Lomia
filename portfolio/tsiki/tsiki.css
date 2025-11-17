@@ -71,3 +71,62 @@ img {
   border-radius: 8px;
   border: 2px dashed var(--border_color);
 }
+
+/* Section Turnaround */
+.turnaround-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(120px, 18vw, 200px), 1fr)
+  );
+  gap: clamp(12px, 2vw, 15px);
+}
+
+.turnaround-item {
+  background: var(--bg_color);
+  aspect-ratio: 9/16;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 5px;
+}
+
+.turnaround-section {
+  background-image: url('img/background.png');
+  padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
+  margin-bottom: clamp(30px, 4vw, 40px);
+  border-radius: 8px;
+}
+
+/* Section Render */
+/* Section Detail Views */
+.render-section,
+.detail-section {
+  background-image: url('img/background.png');
+  padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
+  margin-bottom: clamp(30px, 4vw, 40px);
+  border-radius: 8px;
+}
+
+.render-item,
+.detail-item {
+  background: var(--bg_color);
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 10px;
+}
+
+.render-grid,
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: clamp(20px, 3vw, 30px);
+}
