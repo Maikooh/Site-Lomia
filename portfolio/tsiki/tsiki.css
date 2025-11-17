@@ -1,6 +1,6 @@
 :root {
-  --bg_color: rgba(255, 0, 102, 0.542);
-  --border_color: rgba(255, 255, 2, 0.958);
+  --bg_color: rgba(255, 0, 102, 0);
+  --border_color: rgba(255, 255, 2, 0);
 }
 
 body {
@@ -129,4 +129,174 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
   gap: clamp(20px, 3vw, 30px);
+}
+
+/* Section Character Sheet */
+.character-sheet {
+  background-image: url('img/background.png');
+  padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
+  margin-bottom: clamp(30px, 4vw, 40px);
+  border-radius: 8px;
+}
+
+.character-container {
+  display: grid;
+  grid-template-columns:
+    minmax(150px, 240px)
+    minmax(300px, 1fr)
+    minmax(200px, 280px);
+  gap: clamp(20px, 3vw, 30px);
+  align-items: start;
+}
+
+/* Colonne gauche - Titre "Tsiki" */
+.character-title-left {
+  background: var(--bg_color);
+  padding: clamp(20px, 3vw, 30px) clamp(10px, 2vw, 15px);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  min-height: clamp(400px, 70vh, 700px);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  overflow: hidden;
+}
+
+/* Zone centrale */
+.character-center {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 25px);
+}
+
+/* Expressions/visages en haut */
+.character-faces {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(80px, 15vw, 150px), 1fr)
+  );
+  gap: clamp(10px, 1.5vw, 12px);
+}
+
+.character-face-item {
+  background: var(--bg_color);
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 5px;
+}
+
+/* Personnages complets au centre */
+.character-main-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(20px, 3vw, 30px);
+}
+
+.character-figure {
+  background: var(--bg_color);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  min-height: clamp(350px, 50vh, 500px);
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* Colonne droite - Infos détaillées */
+.character-info-right {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 15px);
+}
+
+.character-symbol {
+  background: var(--bg_color);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  height: clamp(100px, 12vh, 120px);
+  overflow: hidden;
+}
+
+.character-description {
+  background: var(--bg_color);
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px dashed var(--border_color);
+  min-height: clamp(150px, 18vh, 180px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.character-colors {
+  background: var(--bg_color);
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px dashed var(--border_color);
+  height: clamp(40px, 5vh, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-accessories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(8px, 1.2vw, 10px);
+}
+
+.character-accessory-item {
+  background: var(--bg_color);
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 5px;
+}
+
+.character-hands {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(10px, 1.5vw, 12px);
+}
+
+.character-hand-item {
+  background: var(--bg_color);
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 5px;
+}
+
+.character-credits {
+  background: var(--bg_color);
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px dashed var(--border_color);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
