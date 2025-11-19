@@ -1,11 +1,14 @@
 :root {
   --bg_color: rgba(255, 0, 102, 0);
   --border_color: rgba(255, 255, 2, 0);
+  --bg-img: url('img/border.png'), url('img/background.png');
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #1a1a1a;
+  font-family: 'Alegreya' Arial, sans-serif;
+  background-image: url('img/background.png');
   color: rgb(243, 243, 243);
   padding: clamp(10px, 2vw, 20px);
   overflow-x: hidden;
@@ -28,7 +31,7 @@ img {
 
 /* Section Header - Bannière principale */
 .hero-section {
-  background-image: url('img/background.png');
+  background-image: var(--bg-img);
   background-size: cover;
   background-position: center;
   padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
@@ -95,7 +98,7 @@ img {
 }
 
 .turnaround-section {
-  background-image: url('img/background.png');
+  background-image: var(--bg-img);
   padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
   margin-bottom: clamp(30px, 4vw, 40px);
   border-radius: 8px;
@@ -105,7 +108,7 @@ img {
 /* Section Detail Views */
 .render-section,
 .detail-section {
-  background-image: url('img/background.png');
+  background-image: var(--bg-img);
   padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
   margin-bottom: clamp(30px, 4vw, 40px);
   border-radius: 8px;
@@ -133,7 +136,7 @@ img {
 
 /* Section Character Sheet */
 .character-sheet {
-  background-image: url('img/background.png');
+  background-image: var(--bg-img);
   padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
   margin-bottom: clamp(30px, 4vw, 40px);
   border-radius: 8px;
