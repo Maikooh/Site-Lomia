@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Alegreya' Arial, sans-serif;
-  background-image: url('img/background.png');
+  background-color: #1a1a1a;
   color: rgb(243, 243, 243);
   padding: clamp(10px, 2vw, 20px);
   overflow-x: hidden;
@@ -273,12 +273,14 @@ img {
   border: 2px dashed var(--border_color);
   overflow: hidden;
   padding: 5px;
+  scale: 1.5;
 }
 
 .character-hands {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(10px, 1.5vw, 12px);
+  scale: 1.5;
 }
 
 .character-hand-item {
@@ -302,4 +304,72 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Section Close-up */
+.closeup-section {
+  background-image: var(--bg-img);
+  padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
+  margin-bottom: clamp(30px, 4vw, 40px);
+  border-radius: 8px;
+}
+
+.closeup-container {
+  background: var(--bg_color);
+  aspect-ratio: 21/9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* Section Video */
+.video-section {
+  background-image: var(--bg-img);
+  padding: clamp(30px, 4vw, 40px) clamp(20px, 3vw, 30px);
+  margin-bottom: clamp(30px, 4vw, 40px);
+  border-radius: 8px;
+}
+
+/* Container vidéo */
+.video-container {
+  background: var(--bg_color);
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--border_color);
+  overflow: hidden;
+  padding: 10px;
+}
+
+/* iframe responsive */
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* animation */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.block {
+  animation: appear 1s linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 40%;
 }
