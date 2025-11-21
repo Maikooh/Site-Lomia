@@ -1,0 +1,321 @@
+/* A FAIRE : 
+- regler probleme de fond des card (opacité) 
+- finir d ecrire les textes aux propres
+- ajouter la section contact 
+- ajouter section galerie
+- ajouter section galerie
+- ajouter section comission??? 
+*/
+
+:root {
+  --bg_color: rgb(38, 0, 53);
+
+  /* navigation */
+  --nav_text_color: rgb(15, 248, 39);
+  --nav_text_hover_color: rgb(50, 4, 255);
+  --nav_underline_color_hover: rgb(113, 5, 128);
+
+  /* page accueil */
+
+  /* bouton page accueil */
+  --boutton_accueil_bg_color: #ffffff;
+  --boutton_accueil_text_color: #1a1a1a;
+  --bouton_accueil_shadow_hover: 0 20px 60px rgba(24, 255, 8, 0.5);
+
+  /* card hover */
+  --card_shadow_color: 0 30px 80px rgba(239, 248, 58, 0.978);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Durée de scroll personnalisée - plus long = plus smooth */
+  scroll-timeline: --page-scroll;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  background: var(--bg_color);
+  overflow: hidden;
+}
+
+/* Section fullscreen */
+section {
+  background-image: url('/img/Premier_Plan.png'), url('/img/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
+  overflow: hidden;
+
+  /* Transitions ultra douces */
+  transition: all 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform-style: preserve-3d;
+}
+
+/* Navigation en haut */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  transition: all 0.6s ease;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: var(--nav_text_color);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--nav_underline_color_hover);
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: translateX(-50%);
+}
+
+.nav-menu a:hover {
+  color: var(--nav_text_hover_color);
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* logo */
+
+.logo {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* Titre principal */
+.titre {
+  font-size: clamp(60px, 12vw, 180px);
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.15em;
+  margin-bottom: 30px;
+  line-height: 0.9;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+  /* Animation entrée */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sous-titre */
+.hero-subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+
+  /* Animation entrée décalée */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s forwards;
+}
+
+/* Bouton accueil*/
+.bouton_accueil {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 50px;
+  background: white;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  border-radius: 4px;
+
+  /* Transitions ultra smooth */
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+  /* Animation entrée décalée */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.9s forwards;
+}
+
+.bouton_accueil::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.bouton_accueil:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--bouton_accueil_shadow_hover);
+  background: #f8f8f8;
+}
+
+.bouton_accueil:hover::after {
+  transform: translateX(8px);
+}
+
+/* Petite note en bas */
+.footnote {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  letter-spacing: 1px;
+  max-width: 300px;
+  line-height: 1.6;
+
+  opacity: 0;
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 1.2s forwards;
+}
+
+/* Sections suivantes */
+.content-section {
+  background: var(--bg_color);
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 100px 60px;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-title {
+  font-size: clamp(40px, 6vw, 80px);
+  color: white;
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  padding: 50px 40px;
+  border-radius: 20px;
+  transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--card_shadow_color);
+  border-color: rgba(61, 1, 63, 0.3);
+}
+
+.card h3 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* Gestion individuelle des card portfolio */
+
+.tsiki {
+  background-image: url('/portfolio/tsiki/img/gros_plan.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card.tsiki p,
+.card.tsiki h3 {
+  background: rgba(0, 0, 0, 0.438);
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: rgb(255, 255, 255);
+}
+
+.solomon {
+  background-image: url('/portfolio/solomon/img/sol8.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card.solomon p,
+.card.solomon h3 {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 8px;
+  border-radius: 5px;
+  color: rgba(255, 6, 6, 0.6);
+}
+
+/* Gestion individuelle des card article */
