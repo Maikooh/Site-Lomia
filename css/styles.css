@@ -1,17 +1,20 @@
 /* A FAIRE : 
-- regler probleme de fond des card (opacité) 
 - finir d ecrire les textes aux propres
 - ajouter section galerie
 - ajouter section comission???
 corriger les liens "articles suivant/précédent" dans chaque article
+
+
+
+contraintes manquantes : 
 */
 
 :root {
-  --bg_color: rgb(38, 0, 53);
+  --bg_color: rgb(34, 23, 32);
 
   /* navigation */
-  --nav_text_color: rgb(15, 248, 39);
-  --nav_text_hover_color: rgb(50, 4, 255);
+  --nav_text_color: rgb(255, 255, 255);
+  --nav_text_hover_color: rgb(113, 5, 128);
   --nav_underline_color_hover: rgb(113, 5, 128);
 
   /* page accueil */
@@ -22,7 +25,7 @@ corriger les liens "articles suivant/précédent" dans chaque article
   --bouton_accueil_shadow_hover: 0 20px 60px rgba(24, 255, 8, 0.5);
 
   /* card hover */
-  --card_shadow_color: 0 30px 80px rgba(239, 248, 58, 0.978);
+  --card_shadow_color: 0 30px 80px rgba(68, 57, 129, 0.978);
 }
 
 * {
@@ -80,6 +83,17 @@ section {
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all 0.6s ease;
+
+  /* Cacher la navbar sur l'accueil */
+  transform: translateY(-100%);
+  transition: transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Montrer la navbar quand on quitte l'accueil */
+html:has(#portfolio:target) .navbar,
+html:has(#article:target) .navbar,
+html:has(#Contact:target) .navbar {
+  transform: translateY(0);
 }
 
 .nav-menu {
@@ -140,7 +154,10 @@ section {
   letter-spacing: 0.15em;
   margin-bottom: 30px;
   line-height: 0.9;
-  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.5),
+    /* glowing layer (adjust color) */ 0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(0, 0, 0, 0.514);
 
   /* Animation entrée */
   opacity: 0;
@@ -163,6 +180,10 @@ section {
   margin: 0 auto 40px;
   line-height: 1.8;
   letter-spacing: 0.5px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.5),
+    /* glowing layer (adjust color) */ 0 0 28px rgba(0, 0, 0, 0.8),
+    0 0 18px rgba(0, 0, 0, 0.514);
 
   /* Animation entrée décalée */
   opacity: 0;
@@ -319,7 +340,7 @@ section {
   padding: clamp(30px, 5vw, 50px) clamp(25px, 4vw, 40px);
   border-radius: clamp(15px, 2vw, 20px);
   transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.068);
 }
 
 .card:hover {
@@ -343,7 +364,7 @@ section {
 /* Gestion individuelle des card portfolio */
 
 .tsiki {
-  background-image: url('/portfolio/tsiki/img/gros_plan.png');
+  background-image: url('/portfolio/tsiki/img/gros_plan2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -351,14 +372,18 @@ section {
 
 .card.tsiki p,
 .card.tsiki h3 {
-  background: rgba(0, 0, 0, 0.438);
+  background: rgba(0, 0, 0, 0);
   padding: 5px 8px;
   border-radius: 5px;
   color: rgb(255, 255, 255);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.5),
+    /* glowing layer (adjust color) */ 0 0 8px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(0, 0, 0, 0.7);
 }
 
 .solomon {
-  background-image: url('/portfolio/solomon/img/sol8.png');
+  background-image: url('/portfolio/solomon/img/sol12.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -366,17 +391,19 @@ section {
 
 .card.solomon p,
 .card.solomon h3 {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0);
   padding: 5px 8px;
   border-radius: 5px;
-  color: rgba(255, 6, 6, 0.6);
+  color: rgb(252, 237, 237);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.5),
+    /* glowing layer (adjust color) */ 0 0 16px rgba(0, 0, 0, 0.8),
+    0 0 28px rgba(0, 0, 0, 0.616);
 }
 
 /* Gestion individuelle des card article */
 
-/* ============================================
-   SECTION CONTACT
-   ============================================ */
+/* SECTION CONTACT */
 
 .contact-container {
   display: grid;
@@ -493,6 +520,7 @@ section {
 }
 
 /* Informations de contact */
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -536,6 +564,7 @@ section {
 }
 
 /* Réseaux sociaux dans la section contact */
+
 .social-contact {
   background: linear-gradient(
     135deg,
@@ -584,4 +613,36 @@ section {
   box-shadow: 0 10px 25px rgba(15, 248, 39, 0.3);
 }
 
-/* Responsive avec clamp() - pas de @media */
+/* Par défaut, l'accueil est en position fixe */
+#accueil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: transform 1.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Bloquer le scroll initial */
+html {
+  overflow: hidden;
+}
+
+/* Quand on clique sur "Entrer", faire glisser l'accueil vers le haut */
+html:has(#portfolio:target) #accueil,
+html:has(#article:target) #accueil,
+html:has(#Contact:target) #accueil {
+  transform: translateY(-100%);
+}
+
+/* Débloquer le scroll */
+html:has(#portfolio:target),
+html:has(#article:target),
+html:has(#Contact:target) {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+/* Remettre scroll-behavior smooth */
+html:has(#portfolio:target) {
+  scroll-behavior: smooth;
+}
