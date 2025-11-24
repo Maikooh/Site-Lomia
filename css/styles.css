@@ -1,10 +1,9 @@
 /* A FAIRE : 
 - regler probleme de fond des card (opacité) 
 - finir d ecrire les textes aux propres
-- ajouter la section contact 
 - ajouter section galerie
-- ajouter section galerie
-- ajouter section comission??? 
+- ajouter section comission???
+corriger les liens "articles suivant/précédent" dans chaque article
 */
 
 :root {
@@ -76,7 +75,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 60px;
+  padding: clamp(20px, 3vw, 30px) clamp(30px, 5vw, 60px);
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
   backdrop-filter: blur(10px);
   z-index: 1000;
@@ -85,14 +84,15 @@ section {
 
 .nav-menu {
   display: flex;
-  gap: 40px;
+  gap: clamp(20px, 3vw, 40px);
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .nav-menu a {
   color: var(--nav_text_color);
   text-decoration: none;
-  font-size: 14px;
+  font-size: clamp(12px, 1.5vw, 14px);
   letter-spacing: 1px;
   transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
   position: relative;
@@ -122,9 +122,9 @@ section {
 
 .logo {
   color: white;
-  font-size: 18px;
+  font-size: clamp(14px, 2vw, 18px);
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: clamp(1px, 0.3vw, 3px);
   transition: transform 0.3s ease;
 }
 
@@ -175,13 +175,13 @@ section {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 18px 50px;
+  padding: clamp(14px, 2vw, 18px) clamp(30px, 5vw, 50px);
   background: white;
   color: #1a1a1a;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 2px;
+  font-size: clamp(12px, 1.5vw, 14px);
+  letter-spacing: clamp(1px, 0.2vw, 2px);
   border-radius: 4px;
 
   /* Transitions ultra smooth */
@@ -210,15 +210,66 @@ section {
   transform: translateX(8px);
 }
 
+/* Boutons réseaux sociaux page d'accueil */
+.social-links {
+  display: flex;
+  gap: clamp(12px, 2vw, 20px);
+  justify-content: center;
+  margin-top: clamp(25px, 4vw, 40px);
+  flex-wrap: wrap;
+
+  /* Animation entrée décalée */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 1.2s forwards;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(45px, 5vw, 50px);
+  height: clamp(45px, 5vw, 50px);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: white;
+  font-size: clamp(18px, 2vw, 20px);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.social-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 30px rgba(24, 255, 8, 0.3);
+  border-color: rgba(15, 248, 39, 0.5);
+}
+
+/* Images custom pour les icônes sociales (ex: VGen) */
+.social-icon-img {
+  width: clamp(22px, 2.2vw, 24px);
+  height: clamp(22px, 2.2vw, 24px);
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.social-btn:hover .social-icon-img,
+.social-btn-contact:hover .social-icon-img {
+  filter: brightness(0) invert(1);
+  transform: scale(1.1);
+}
+
 /* Petite note en bas */
 .footnote {
   position: absolute;
-  bottom: 40px;
-  left: 60px;
+  bottom: clamp(20px, 4vw, 40px);
+  left: clamp(30px, 5vw, 60px);
   color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
+  font-size: clamp(10px, 1.2vw, 11px);
   letter-spacing: 1px;
-  max-width: 300px;
+  max-width: clamp(200px, 30vw, 300px);
   line-height: 1.6;
 
   opacity: 0;
@@ -230,7 +281,7 @@ section {
   background: var(--bg_color);
   min-height: 100vh;
   min-width: 100vw;
-  padding: 100px 60px;
+  padding: clamp(60px, 10vw, 100px) clamp(30px, 5vw, 60px);
 }
 
 .content-wrapper {
@@ -241,7 +292,7 @@ section {
 .content-title {
   font-size: clamp(40px, 6vw, 80px);
   color: white;
-  margin-bottom: 60px;
+  margin-bottom: clamp(40px, 6vw, 60px);
   font-weight: 700;
 }
 
@@ -255,15 +306,18 @@ section {
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-top: 60px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(250px, 30vw, 300px), 1fr)
+  );
+  gap: clamp(25px, 4vw, 40px);
+  margin-top: clamp(40px, 6vw, 60px);
 }
 
 .card {
   background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-  padding: 50px 40px;
-  border-radius: 20px;
+  padding: clamp(30px, 5vw, 50px) clamp(25px, 4vw, 40px);
+  border-radius: clamp(15px, 2vw, 20px);
   transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -276,14 +330,14 @@ section {
 
 .card h3 {
   color: white;
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: clamp(22px, 3vw, 28px);
+  margin-bottom: clamp(15px, 2vw, 20px);
 }
 
 .card p {
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
 }
 
 /* Gestion individuelle des card portfolio */
@@ -319,3 +373,215 @@ section {
 }
 
 /* Gestion individuelle des card article */
+
+/* ============================================
+   SECTION CONTACT
+   ============================================ */
+
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(300px, 40vw, 400px), 1fr)
+  );
+  gap: clamp(30px, 6vw, 60px);
+  margin-top: clamp(25px, 4vw, 40px);
+}
+
+/* Formulaire de contact */
+.contact-form-wrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.8) 0%,
+    rgba(42, 42, 42, 0.8) 100%
+  );
+  padding: clamp(30px, 5vw, 50px);
+  border-radius: clamp(15px, 2vw, 20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.5vw, 25px);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(13px, 1.5vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-group label i {
+  color: rgb(15, 248, 39);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(8px, 1vw, 10px);
+  padding: clamp(12px, 1.5vw, 15px) clamp(15px, 2vw, 20px);
+  color: white;
+  font-size: clamp(14px, 1.5vw, 15px);
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgb(15, 248, 39);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(15, 248, 39, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: clamp(120px, 15vw, 150px);
+}
+
+.submit-btn {
+  background: linear-gradient(
+    135deg,
+    rgb(15, 248, 39) 0%,
+    rgb(113, 5, 128) 100%
+  );
+  color: white;
+  border: none;
+  padding: clamp(14px, 2vw, 18px) clamp(25px, 4vw, 40px);
+  border-radius: clamp(8px, 1vw, 10px);
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(15, 248, 39, 0.4);
+}
+
+.submit-btn i {
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.submit-btn:hover i {
+  transform: translateX(5px);
+}
+
+/* Informations de contact */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 30px);
+}
+
+.info-card {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.6) 0%,
+    rgba(42, 42, 42, 0.6) 100%
+  );
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: clamp(12px, 1.5vw, 15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(15, 248, 39, 0.3);
+  box-shadow: 0 10px 30px rgba(15, 248, 39, 0.2);
+}
+
+.info-card i {
+  font-size: clamp(26px, 3.5vw, 32px);
+  color: rgb(15, 248, 39);
+  margin-bottom: clamp(10px, 1.5vw, 15px);
+}
+
+.info-card h3 {
+  color: white;
+  font-size: clamp(18px, 2vw, 20px);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(14px, 1.5vw, 15px);
+}
+
+/* Réseaux sociaux dans la section contact */
+.social-contact {
+  background: linear-gradient(
+    135deg,
+    rgba(26, 26, 26, 0.6) 0%,
+    rgba(42, 42, 42, 0.6) 100%
+  );
+  padding: clamp(20px, 3vw, 30px);
+  border-radius: clamp(12px, 1.5vw, 15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.social-contact h3 {
+  color: white;
+  font-size: clamp(18px, 2vw, 20px);
+  margin-bottom: clamp(15px, 2vw, 20px);
+}
+
+.social-links-contact {
+  display: flex;
+  gap: clamp(12px, 1.5vw, 15px);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-btn-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(45px, 5vw, 50px);
+  height: clamp(45px, 5vw, 50px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: clamp(18px, 2vw, 20px);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.social-btn-contact:hover {
+  background: rgba(15, 248, 39, 0.1);
+  border-color: rgb(15, 248, 39);
+  color: rgb(15, 248, 39);
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 10px 25px rgba(15, 248, 39, 0.3);
+}
+
+/* Responsive avec clamp() - pas de @media */

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monciardini Lorene</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   </head>
   <body>
     <!-- Navigation -->
@@ -38,6 +39,28 @@
           <a href="#portfolio" class="bouton_accueil">
             <span>Entrer</span>
           </a>
+          
+          <!-- Boutons réseaux sociaux -->
+          <div class="social-links">
+            <a href="https://ko-fi.com/lomia" target="_blank" class="social-btn" aria-label="Ko-fi">
+              <i class="fa-solid fa-mug-hot"></i>
+            </a>
+            <a href="https://www.instagram.com/lorene.mdini" target="_blank" class="social-btn" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://fr.pinterest.com/lorenemdini/" target="_blank" class="social-btn" aria-label="Pinterest">
+              <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/lor%C3%A8ne-monciardini-019b2836a/" target="_blank" class="social-btn" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://www.artstation.com/lorene_monciardini" target="_blank" class="social-btn" aria-label="ArtStation">
+              <i class="fa-brands fa-artstation"></i>
+            </a>
+            <a href="https://vgen.co/Lomia" target="_blank" class="social-btn" aria-label="VGen">
+              <img src="/img/vgen-icon.png" alt="VGen" class="social-icon-img">
+            </a>
+          </div>
         </div>
         <p class="footnote">Lorem ipsum</p>
       </section>
@@ -65,8 +88,8 @@
             <div class="card solomon">
               <h3> SOLOMON</h3>
               <p>
-                Oh, tu veux t’approcher ? Comme c’est doux…  
-                Suis Solomon, le petit hérisson au cœur sensible et aux piquants pleins d’émotions.  
+                Oh, tu veux t'approcher ? Comme c'est doux…  
+                Suis Solomon, le petit hérisson au cœur sensible et aux piquants pleins d'émotions.  
                 Il te montrera que même les plus discrets portent en eux un courage lumineux.
               </p>
 
@@ -94,7 +117,7 @@
           <div class="cards-grid">
 
             <div class="card ratatouille_design">
-              <a href="/article/" target="_blank" class="card-link">
+              <a href="/article/ratatouille_design.html" target="_blank" class="card-link">
               <h3>Ratatouille Design</h3>
               <p>
                 bla bla
@@ -103,7 +126,7 @@
             </div>
 
             <div class="card karmeliet_design">
-              <a href="/article/" target="_blank" class="card-link">
+              <a href="/article/karmeliet_design.html" target="_blank" class="card-link">
               <h3>Karmeliet Design</h3>
               <p>
                 bla bla
@@ -112,7 +135,7 @@
             </div>
 
             <div class="card gnocchi_design">
-              <a href="/article/" target="_blank" class="card-link">
+              <a href="/article/gnocchi_design.html" target="_blank" class="card-link">
               <h3>Gnocchi Design</h3>
               <p>
                 bla bla
@@ -121,7 +144,7 @@
             </div>
 
             <div class="card spip">
-              <a href="/article/" target="_blank" class="card-link">
+              <a href="/article/spip.html" target="_blank" class="card-link">
               <h3>Les légendes félines ~ Spip</h3>
               <p>
                 bla bla
@@ -130,7 +153,7 @@
             </div>
 
             <div class="card draco">
-              <a href="/article/" target="_blank" class="card-link">
+              <a href="/article/draco.html" target="_blank" class="card-link">
               <h3>Les légendes félines ~ Draco</h3>
               <p>
                 bla bla
@@ -139,7 +162,7 @@
             </div>
 
             <div class="card ratatouille">
-              <a href="/article/" target="_blank" class="card-link">
+              <a href="/article/Ratatouille.html" target="_blank" class="card-link">
               <h3>Les légendes félines ~ Ratatouille</h3>
               <p>
                 bla bla
@@ -147,12 +170,105 @@
               </a>
             </div>
 
-    <!-- Section Contact -->
-
-
           </div>
         </div>
       </div>
+    </section>
+
+
+    <!-- Section Contact -->
+    
+    <section id="Contact">
+      <div class="content-section">
+        <div class="content-wrapper">
+          <h2 class="content-title">Contact</h2>
+          
+          <div class="contact-container">
+            
+            <!-- Formulaire de contact -->
+            <div class="contact-form-wrapper">
+              <form class="contact-form">
+                <div class="form-group">
+                  <label for="name">
+                    <i class="fa-solid fa-user"></i> Nom
+                  </label>
+                  <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="email">
+                    <i class="fa-solid fa-envelope"></i> Email
+                  </label>
+                  <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="subject">
+                    <i class="fa-solid fa-tag"></i> Sujet
+                  </label>
+                  <input type="text" id="subject" name="subject" placeholder="Objet de votre message" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="message">
+                    <i class="fa-solid fa-message"></i> Message
+                  </label>
+                  <textarea id="message" name="message" rows="6" placeholder="Votre message..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                  <span>Envoyer*</span>
+                  <i class="fa-solid fa-paper-plane"></i>
+                </button>
+                <br>
+                <p class="footnote">*Formulaire fictif non fonctionnel</p>
+              </form>
+            </div>
+            
+            <!-- Informations et réseaux sociaux -->
+            <div class="contact-info">
+              <div class="info-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Localisation</h3>
+                <p>France</p>
+              </div>
+              
+              <div class="info-card">
+                <a href="#portfolio" style="text-decoration: none;">
+                <i class="fa-solid fa-palette"></i>
+                <h3>Portfolio</h3>
+                <p>Découvrez mes créations</p>
+                </a>
+              </div>
+              <div class="social-contact">
+                <h3>Suivez-moi</h3>
+                <div class="social-links-contact">
+                  <a href="https://ko-fi.com/lomia" target="_blank" class="social-btn-contact" aria-label="Ko-fi">
+                    <i class="fa-solid fa-mug-hot"></i>
+                  </a>
+                  <a href="https://www.instagram.com/lorene.mdini" target="_blank" class="social-btn-contact" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                  <a href="https://fr.pinterest.com/lorenemdini/" target="_blank" class="social-btn-contact" aria-label="Pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                  </a>
+                  <a href="https://www.linkedin.com/in/lor%C3%A8ne-monciardini-019b2836a/" target="_blank" class="social-btn-contact" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                  </a>
+                  <a href="https://www.artstation.com/lorene_monciardini" target="_blank" class="social-btn-contact" aria-label="ArtStation">
+                    <i class="fa-brands fa-artstation"></i>
+                  </a>
+                  <a href="https://vgen.co/Lomia" target="_blank" class="social-btn-contact" aria-label="VGen">
+                    <img src="/img/vgen-icon.png" alt="VGen" class="social-icon-img">
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
     </section>
 
 
