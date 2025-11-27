@@ -1,0 +1,416 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========================================
+   SECTIONS PERSONNAGES
+   ======================================== */
+
+.character-section {
+  padding: clamp(1rem, 3vw, 3rem);
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solomon-section {
+  background: #ffffff;
+}
+
+.sacha-section {
+  background: #fafafa;
+}
+
+/* ========================================
+   CONTAINER PRINCIPAL
+   ======================================== */
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: clamp(900px, 95vw, 1600px);
+
+  /* Correction : hauteur flexible */
+  min-height: clamp(500px, 85vh, 900px);
+  height: auto;
+
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container-solomon {
+  flex-direction: row-reverse;
+}
+
+.container-sacha {
+  flex-direction: row;
+}
+
+/* ========================================
+   ZONE GRILLE D'IMAGES
+   ======================================== */
+
+.images-grid {
+  flex: 1 1 clamp(300px, 45vw, 600px);
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+
+  gap: clamp(0.8rem, 2vw, 2rem);
+  max-height: clamp(400px, 75vh, 700px);
+}
+
+.images-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Placement */
+.image-1 {
+  grid-column: 1;
+  grid-row: 1;
+}
+.image-2 {
+  grid-column: 2;
+  grid-row: 1;
+}
+.image-3 {
+  grid-column: 1;
+  grid-row: 2;
+}
+.image-4 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Scales spécifiques */
+.images-grid-solomon .image-3 {
+  scale: 2;
+}
+.images-grid-sacha .image-1 {
+  scale: 0.9;
+}
+.images-grid-sacha .image-2 {
+  scale: 1.2;
+}
+
+/* Images : layout responsive */
+.images-grid {
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(120px, 40vw, 250px), 1fr)
+  );
+}
+
+/* ========================================
+   PALETTE DE COULEURS
+   ======================================== */
+
+.palette-container {
+  flex: 0 0 clamp(60px, 8vw, 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: auto;
+  min-height: clamp(300px, 50vh, 500px);
+}
+
+.palette {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.color-dot {
+  width: clamp(40px, 6vw, 70px);
+  height: clamp(40px, 6vw, 70px);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+/* ========================================
+   ZONE CONTENU (TEXTE + PERSONNAGE + ANIMAL)
+   ======================================== */
+
+.content-right {
+  flex: 1 1 clamp(280px, 35vw, 450px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+  justify-content: center;
+  height: auto;
+}
+
+.icon-character {
+  width: clamp(140px, 18vw, 220px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.icon-character img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.text-block {
+  background: #cfe0ff;
+  padding: clamp(1.2rem, 3vw, 2.5rem);
+  border-radius: clamp(12px, 2vw, 20px);
+  width: 100%;
+  max-width: clamp(280px, 100%, 400px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.text-block p {
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  line-height: clamp(1.5, 1.7, 1.8);
+  color: #1a1a1a;
+  margin-bottom: clamp(0.7rem, 1.5vw, 1.2rem);
+  text-align: left;
+}
+
+.text-block p:last-child {
+  margin-bottom: 0;
+}
+
+.animal-image {
+  width: clamp(120px, 20vw, 200px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.animal-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Scales animaux */
+.animal-image-solomon img {
+  scale: 2.4;
+}
+.animal-image-sacha img {
+  scale: 3;
+}
+
+/* =========================================================
+   PAGE DE COUVERTURE
+   ========================================================= */
+
+.cover-page {
+  padding: clamp(2rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: clamp(2rem, 3vw, 4rem);
+}
+
+.cover-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+.character-illustration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cover-image {
+  width: clamp(250px, 40vw, 600px);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+.title-block h1 {
+  margin: 0;
+}
+
+.portfolio-label {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  letter-spacing: 2px;
+}
+
+.main-title {
+  font-size: clamp(2.8rem, 6vw, 6rem);
+  font-weight: bold;
+}
+
+.authors {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  opacity: 0.8;
+}
+
+/* =========================================================
+   PAGE RÉSUMÉ
+   ========================================================= */
+
+.story-page {
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 4vw, 5rem);
+  flex-wrap: wrap;
+}
+
+.text-section {
+  flex: 1 1 clamp(280px, 40vw, 500px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.section-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.title-cursive {
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  margin-right: 0.4em;
+}
+
+.title-bold {
+  font-weight: bold;
+}
+
+.story-text p {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.sketch-illustration img {
+  width: clamp(180px, 45vw, 350px);
+  height: auto;
+  object-fit: contain;
+}
+
+.illustration-section {
+  flex: 1 1 clamp(280px, 40vw, 550px);
+}
+
+.main-illustration img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================================================
+   PAGE Histoire complète
+   ========================================================= */
+.full-story-page {
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.full-story-page .page-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(2rem, 4vw, 4rem);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Colonnes */
+.story-column {
+  flex: 1 1 clamp(300px, 38vw, 550px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.5vw, 2rem);
+}
+
+/* Titre */
+.section-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0;
+}
+
+.title-cursive {
+  font-style: italic;
+  margin-right: 0.4em;
+}
+
+.title-bold {
+  font-weight: 700;
+}
+
+/* Texte */
+.story-content p {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Image dans la colonne */
+.story-illustration-inline {
+  width: clamp(200px, 40vw, 500px);
+  height: auto;
+  display: block;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
+
+/* =========================================================
+   PAGE REMERCIEMENT
+   ========================================================= */
+
+.thank-you-page {
+  padding: clamp(2rem, 6vw, 5rem);
+  background: #fafafa;
+}
+
+.thank-you-page .page-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.thank-you-illustration img {
+  width: clamp(240px, 45vw, 600px);
+  height: auto;
+  display: block;
+}
+
+.thank-you-content {
+  text-align: center;
+  flex: 1 1 clamp(260px, 35vw, 450px);
+}
+
+.thank-you-content h2 {
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+}
