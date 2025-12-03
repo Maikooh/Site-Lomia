@@ -1,14 +1,3 @@
-/* A FAIRE : 
-- finir d ecrire les textes aux propres
-- ajouter section galerie
-- ajouter section comission???
-corriger les liens "articles suivant/précédent" dans chaque article
-
-
-
-contraintes manquantes : 
-*/
-
 :root {
   --bg_color: rgb(34, 23, 32);
 
@@ -92,6 +81,7 @@ section {
 /* Montrer la navbar quand on quitte l'accueil */
 html:has(#portfolio:target) .navbar,
 html:has(#article:target) .navbar,
+html:has(#galerie:target) .navbar,
 html:has(#Contact:target) .navbar {
   transform: translateY(0);
 }
@@ -630,6 +620,7 @@ html {
 
 /* Quand on clique sur "Entrer", faire glisser l'accueil vers le haut */
 html:has(#portfolio:target) #accueil,
+html:has(#galerie:target) #accueil,
 html:has(#article:target) #accueil,
 html:has(#Contact:target) #accueil {
   transform: translateY(-100%);
@@ -638,6 +629,7 @@ html:has(#Contact:target) #accueil {
 /* Débloquer le scroll */
 html:has(#portfolio:target),
 html:has(#article:target),
+html:has(#galerie:target),
 html:has(#Contact:target) {
   overflow: auto;
   overflow-x: hidden;
