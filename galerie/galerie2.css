@@ -1,0 +1,132 @@
+/* tuto lundev : https://www.youtube.com/watch?v=yqaLSlPOUxM&t=54s */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #262842;
+  color: white;
+}
+
+main {
+  text-align: center;
+  padding: clamp(30px, 5vh, 60px) 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: clamp(20px, 3vh, 30px);
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carousel 3D */
+.banner {
+  width: 100%;
+  height: clamp(400px, 60vh, 600px);
+  text-align: center;
+  overflow: visible;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner .slider {
+  position: relative;
+  width: clamp(120px, 15vw, 200px);
+  height: clamp(150px, 20vw, 250px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 20s linear infinite;
+}
+
+.banner .slider:hover {
+  animation-play-state: paused;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-6deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-6deg) rotateY(360deg);
+  }
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(clamp(200px, 30vw, 400px));
+}
+
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: clamp(5px, 1vw, 10px);
+  transition: transform 0.3s ease;
+}
+
+.banner .slider .item:hover img {
+  transform: scale(1.2);
+}
+
+/* Bouton retour */
+.back-container {
+  margin-top: clamp(30px, 5vh, 60px);
+}
+
+.back-btn {
+  display: inline-block;
+  padding: clamp(12px, 1.5vh, 14px) clamp(25px, 3vw, 35px);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+}
