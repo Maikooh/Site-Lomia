@@ -82,11 +82,20 @@ html:has(:target:not(#accueil)) .navbar {
 
 /* logo */
 .logo {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1vw, 12px);
   color: white;
   font-size: clamp(14px, 2vw, 18px);
   font-weight: 600;
   letter-spacing: clamp(1px, 0.3vw, 3px);
   transition: transform 0.3s ease;
+}
+
+.logo img {
+  height: clamp(30px, 4vw, 50px);
+  width: auto;
+  object-fit: contain;
 }
 
 .logo:hover {

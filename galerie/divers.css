@@ -1,0 +1,62 @@
+body {
+  background-color: #242223;
+  margin: 0;
+  padding: 1em;
+}
+
+.list {
+  columns: 300px;
+}
+
+.list a {
+  display: block;
+}
+
+.list img {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.close-overlay,
+.close-image {
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.close-overlay {
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 998;
+  transition: opacity 0.3s;
+}
+
+.close-image {
+  z-index: 1000;
+}
+
+body:has(img:target) .close-overlay,
+body:has(img:target) .close-image {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.list img:target {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  margin: 0;
+  z-index: 999;
+  animation: zoomIn 0.3s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.3);
+    opacity: 0;
+  }
+}
