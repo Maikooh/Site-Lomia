@@ -1,0 +1,349 @@
+/***********************************
+  TITRES, TEXTES, HERO
+************************************/
+/* Titre principal */
+.titre {
+  font-size: clamp(60px, 12vw, 180px);
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.15em;
+  margin-bottom: 30px;
+  line-height: 0.9;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0), 0 0 8px rgba(0, 0, 0, 0),
+    0 0 8px rgba(255, 255, 255, 0), 0 0 8px rgba(0, 0, 0, 0.277),
+    0 0 130px rgba(0, 0, 0, 0.664);
+
+  /* Animation entrée */
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s forwards;
+}
+
+/* Sous-titre */
+.hero-subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(0, 0, 0, 0.5), 0 0 28px rgba(0, 0, 0, 0.8),
+    0 0 18px rgba(0, 0, 0, 0.514);
+  /* Animation entrée décalée */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s forwards;
+}
+
+/* note de page */
+.footnote {
+  position: absolute;
+  bottom: clamp(20px, 4vw, 40px);
+  left: clamp(30px, 5vw, 60px);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(10px, 1.2vw, 11px);
+  letter-spacing: 1px;
+  max-width: clamp(200px, 30vw, 300px);
+  line-height: 1.6;
+
+  opacity: 0;
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 1.2s forwards;
+}
+
+.content-title {
+  font-size: clamp(40px, 6vw, 80px);
+  color: white;
+  margin-bottom: var(--space-lg);
+  font-weight: 700;
+}
+
+/***********************************
+  BOUTONS
+************************************/
+
+/* Bouton accueil*/
+.bouton_accueil {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: clamp(14px, 2vw, 18px) clamp(30px, 5vw, 50px);
+  background: white;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(12px, 1.5vw, 14px);
+  letter-spacing: clamp(1px, 0.2vw, 2px);
+  border-radius: 4px;
+
+  /* Transitions ultra smooth */
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+
+  /* Animation entrée décalée */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.9s forwards;
+}
+
+.bouton_accueil::after {
+  content: '→';
+  font-size: 18px;
+  transition: transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.bouton_accueil:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--bouton_accueil_shadow_hover);
+  background: #f8f8f8;
+}
+
+.bouton_accueil:hover::after {
+  transform: translateX(8px);
+}
+
+.submit-btn {
+  background: linear-gradient(
+    135deg,
+    rgb(15, 248, 39) 0%,
+    rgb(113, 5, 128) 100%
+  );
+  color: white;
+  border: none;
+  padding: clamp(14px, 2vw, 18px) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(15, 248, 39, 0.4);
+}
+
+.submit-btn i {
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.submit-btn:hover i {
+  transform: translateX(5px);
+}
+
+/***********************************
+  SOCIAL BUTTONS
+************************************/
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: clamp(45px, 5vw, 50px);
+  height: clamp(45px, 5vw, 50px);
+  border-radius: 50%;
+  font-size: var(--icon-size);
+  color: var(--color, white);
+  background: var(--bg, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.2));
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.social:hover {
+  background: var(--hover-bg, rgba(255, 255, 255, 0.2));
+  border-color: var(--hover-border, rgba(15, 248, 39, 0.5));
+  box-shadow: var(--hover-shadow, 0 10px 30px rgba(24, 255, 8, 0.3));
+  transform: translateY(-5px) scale(1.1);
+}
+
+.social-links,
+.social-links-contact {
+  display: flex;
+  gap: clamp(12px, 2vw, 20px);
+  justify-content: center;
+  margin-top: var(--space-md);
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 1.2s forwards;
+}
+
+/* Images custom pour les icônes sociales (ex: VGen) */
+.social-icon-img {
+  width: clamp(22px, 2.2vw, 24px);
+  height: clamp(22px, 2.2vw, 24px);
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  scale: 1.5;
+}
+
+/***********************************
+  CARDS
+************************************/
+
+.card {
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: clamp(30px, 5vw, 50px) var(--space-md);
+  border-radius: var(--radius-lg);
+  transition: all 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  border: 1px solid rgba(255, 255, 255, 0.068);
+}
+
+.card h3,
+.card p {
+  color: var(--text-color, white);
+  text-shadow: var(--text-shadow, 0 0 10px rgba(0, 0, 0, 0.7));
+  padding: 5px 8px;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--card_shadow_color);
+  border-color: rgba(61, 1, 63, 0.3);
+}
+
+.card h3 {
+  font-size: var(--card-title-size);
+  margin-bottom: var(--radius-lg);
+}
+
+.card p {
+  line-height: 1.8;
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+.card-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+/***********************************
+  FORMULAIRE DE CONTACT
+************************************/
+
+/* Formulaire de contact */
+.contact-form-wrapper {
+  padding: clamp(30px, 5vw, 50px);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(18px, 2.5vw, 25px);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(13px, 1.5vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-group label i {
+  color: rgb(15, 248, 39);
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: var(--radius-md) var(--radius-lg);
+  color: white;
+  font-size: clamp(14px, 1.5vw, 15px);
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgb(15, 248, 39);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 20px rgba(15, 248, 39, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: clamp(120px, 15vw, 150px);
+}
+
+/***********************************
+  BLOCS CONTACT (infos & réseaux)
+************************************/
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.info-card {
+  padding: var(--space-sm);
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(15, 248, 39, 0.3);
+  box-shadow: 0 10px 30px rgba(15, 248, 39, 0.2);
+}
+
+.info-card i {
+  font-size: clamp(26px, 3.5vw, 32px);
+  color: rgb(15, 248, 39);
+  margin-bottom: clamp(10px, 1.5vw, 15px);
+}
+
+.info-card h3 {
+  color: white;
+  font-size: var(--icon-size);
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(14px, 1.5vw, 15px);
+}
+
+/* Réseaux sociaux dans la section contact */
+.social-contact {
+  padding: var(--space-sm);
+  text-align: center;
+}
+
+.social-contact h3 {
+  color: white;
+  font-size: var(--icon-size);
+  margin-bottom: var(--radius-lg);
+}

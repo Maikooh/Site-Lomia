@@ -1,0 +1,72 @@
+/***********************************
+  BASE / VARIABLES / RESET
+************************************/
+:root {
+  --space-xs: clamp(10px, 1.2vw, 12px);
+  --space-sm: clamp(20px, 3vw, 30px);
+  --space-md: clamp(25px, 4vw, 40px);
+  --space-lg: clamp(40px, 6vw, 60px);
+  --space-xl: clamp(60px, 10vw, 100px);
+
+  --radius-sm: clamp(8px, 1vw, 10px);
+  --radius-md: clamp(12px, 1.5vw, 15px);
+  --radius-lg: clamp(15px, 2vw, 20px);
+
+  --icon-size: clamp(18px, 2vw, 20px);
+  --card-title-size: clamp(22px, 3vw, 28px);
+
+  --bg_color: rgb(34, 23, 32);
+
+  /* navigation */
+  --nav_text_color: rgb(255, 255, 255);
+  --nav_text_hover_color: rgb(113, 5, 128);
+  --nav_underline_color_hover: rgb(113, 5, 128);
+
+  /* bouton page accueil */
+  --boutton_accueil_bg_color: #ffffff;
+  --boutton_accueil_text_color: #1a1a1a;
+  --bouton_accueil_shadow_hover: 0 20px 60px rgba(24, 255, 8, 0.5);
+
+  /* card hover */
+  --card_shadow_color: 0 30px 80px rgba(68, 57, 129, 0.978);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Durée de scroll personnalisée - plus long = plus smooth */
+  scroll-behavior: smooth;
+  scroll-timeline: --page-scroll;
+  overflow: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  background: var(--bg_color);
+  overflow: hidden;
+}
+
+/***********************************
+  UTILITAIRES 
+************************************/
+
+.glass {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+  border-radius: var(--radius-md);
+}
+
+/* animations globales */
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
