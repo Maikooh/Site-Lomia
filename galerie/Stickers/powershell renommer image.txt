@@ -1,0 +1,25 @@
+Script pour renommer les images
+
+# Chemin du dossier contenant les fichiers
+$folder = "remplacer par path" 
+
+# Récupère tous les fichiers et les trie par nom
+$files = Get-ChildItem -Path $folder -File | Sort-Object Name
+
+# Compteur de départ
+$i = 1
+
+foreach ($file in $files) {
+    # Nouvelle extension identique à l’original
+    $ext = $file.Extension
+
+    # Nouveau nom : 1.ext, 2.ext, ...
+    $newName = "$i$ext"
+
+    # Renommage
+    Rename-Item -Path $file.FullName -NewName $newName
+
+    $i++
+}
+
+Write-Host "Renommage terminé !"
