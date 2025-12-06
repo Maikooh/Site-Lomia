@@ -1,7 +1,7 @@
 :root {
   --bg_color: rgba(255, 0, 102, 0);
   --border_color: rgba(255, 255, 2, 0);
-  --bg-img: url('img/border.png'), url('img/background.png');
+  --bg-img: url('./img/border.png'), url('./img/background.png');
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap');
@@ -244,17 +244,6 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-}
-
-.character-colors {
-  background: var(--bg_color);
-  padding: 12px;
-  border-radius: 8px;
-  border: 2px dashed var(--border_color);
-  height: clamp(40px, 5vh, 50px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .character-accessories {
