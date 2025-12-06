@@ -3,7 +3,7 @@
 ************************************/
 
 section {
-  background-image: url('/img/Premier_Plan.png'), url('/img/background.png');
+  background-image: url('../img/Premier_Plan.png'), url('../img/background.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
